@@ -1,0 +1,27 @@
+<div *ngIf="petitionState.readHttpState.isRequesting">
+  <p>Loading...</p>
+</div>
+<div *ngIf="!petitionState.readHttpState.isRequesting && !petitionState.readHttpState.error">
+  <table style="width:100%">
+      <tr>
+        <th>Charge</th>
+        <th>Punishment</th> 
+        <th>Plaintiff</th>
+        <th>Defendant</th>
+        <th>Praetor</th>
+        <th>Verdict</th>
+      </tr>
+      <tr *ngFor="let petition of petitionState.petitions">
+        <td>{{ petition.charge }}</td>
+        <td>{{ petition.punishment }}</td> 
+        <td>{{ petition.creator }}</td>
+        <td>{{ petition.defendant }}</td>
+        <td>{{ petition.praetor }}</td>
+        <td>{{ petition.verdict }}</td>
+      </tr>
+    </table>
+</div>
+<div *ngIf="!petitionState.readHttpState.isRequesting && petitionState.readHttpState.error as error">
+    <p>{{ error.message }}</p>
+    <p>{{ error.error.error.name }}: {{ error.error.error.message }}</p>
+</div>

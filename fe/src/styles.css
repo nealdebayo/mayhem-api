@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+.app-banner {
+    height: 30pt;
+    width: 100%;
+}
+.form {
+    font-size: 18px;
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 20pt;
+    text-align: center;
+    font-size: 30px !important;
+}
+
+.form-error {
+    font-size: 12px !important;
+    padding-top: 3px;
+    color: red;
+}
+
+.input[type=button]{
+    font-size: 18px;
+}
+
+.form .label {
+    vertical-align: top;
+    width: 160px;
+    display:inline-block;
+    margin-top: 10pt;
+    margin-bottom: 3pt;
+}
+
+.form .select {
+    font-size: 18px;
+    width: 150pt;
+}
+
+.form-row {
+    margin-left: 20pt;
+    margin-bottom: 2pt;
+}
+
+.textarea {
+    width: 250pt;
+    height: 35pt;
+    font-size: small;
+}
+
+.form .input[type="submit"] {
+    margin-top: 15px;
+    padding-left: 8pt;
+    padding-right: 8pt;
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+    font-size: 12pt !important;
+    float: left;
+    background-color: rgb(57, 96, 168);
+    color: white;
+    box-shadow: 3pt;
+}
+
+.form .input[type="submit"]:disabled {
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    box-shadow: 3pt;
+}

@@ -1,0 +1,45 @@
+version: '3.5'
+
+services:
+  mayhem-fe:
+    container_name: mayhem-fe
+    depends_on:
+      - mayhem-api
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+    volumes:
+      - './fe:/usr/src/app'
+    ports:
+      - '4200:4200'
+    environment:
+      - WAIT_HOSTS=mayhem-api:5000
+      - API_HOST=mayhem-api
+      - API_PORT=5000
+
+  mayhem-api:
+    container_name: mayhem-api
+    depends_on:
+      - mayhem-db
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - './api:/usr/src/app'
+    ports:
+      - '5000:5000'
+      - '9229:9229'
+    environment:
+      - WAIT_HOSTS=mayhem-db:27017
+
+  mayhem-db:
+    image: mongo:4.0.1
+    container_name: mayhem-db
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./api/data/db:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null

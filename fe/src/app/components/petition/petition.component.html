@@ -1,0 +1,39 @@
+<div *ngIf="auth.isLoggedIn()">
+  <form [formGroup]="petitionForm" (ngSubmit) = "onClickSubmit()" class="form">
+    <div class="form-header">
+      <span id="form-header">Add Petition</span>
+    </div>
+    <!-- <div class="form-row">
+      <label id="lbl-defender" for="petition.defender" class="label">Defender:</label><br>
+      <select id="input.defender" class="select" formControlName="defender">
+        <option value="" disabled>Select A Defender</option>
+        <option *ngFor = "let def of defenderList"
+        [ngValue] =  "def"> {{def}} </option>
+      </select>
+      <div *ngIf="petitionForm.controls['defender'].invalid && (petitionForm.controls['defender'].dirty || petitionForm.controls['defender'].touched)">
+          <div class="form-error" *ngIf="petitionForm.controls['defender'].errors.required">Defender is required.</div>
+        </div>
+      </div> -->
+    <div class="form-row">
+      <label id="lbl-charge" for="petition.charge" class="label">Charge:</label><br>
+      <textarea id="input.charge" class="textarea" formControlName="charge"></textarea>
+      <div *ngIf="petitionForm.controls['charge'].invalid && (petitionForm.controls['charge'].dirty || petitionForm.controls['charge'].touched)">
+        <div class="form-error" *ngIf="petitionForm.controls['charge'].errors.required">Charge is required.</div>
+        <div class="form-error" *ngIf="petitionForm.controls['charge'].errors.minlength">At least 15 characters required.</div>
+        <div class="form-error" *ngIf="petitionForm.controls['charge'].errors.maxlength">Maximum 250 characters allowed.</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <label id="lbl-punishment" for="petition.punishment" class="label">Punishment:</label><br>
+      <textarea id="input.punishment" class="textarea" formControlName="punishment"></textarea>
+      <div *ngIf="petitionForm.controls['punishment'].invalid && (petitionForm.controls['punishment'].dirty || petitionForm.controls['punishment'].touched)">
+          <div class="form-error" *ngIf="petitionForm.controls['punishment'].errors.required">Punishment is required.</div>
+          <div class="form-error" *ngIf="petitionForm.controls['punishment'].errors.minlength">At least 15 characters required.</div>
+          <div class="form-error" *ngIf="petitionForm.controls['punishment'].errors.maxlength">Maximum 250 characters allowed.</div>
+        </div>
+      </div>
+    <div class="form-row">
+      <button id="btn-submit" class="input" [disabled] = "!petitionForm .valid" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

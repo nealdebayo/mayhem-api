@@ -1,0 +1,15 @@
+<form *ngIf="!auth.isLoggedIn()" class="form-inline my-2 my-sm-0" (submit)="login()">
+  <div class="form-group">
+    <label for="email" class="mx-2">Email address</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+  </div>
+  <div class="form-group">
+    <label for="password" class="mx-2">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+  </div>
+  <button type="submit" class="btn btn-default mx-2 text-primary">Sign in!</button>
+</form>
+<div *ngIf="auth.isLoggedIn()">
+  Welcome {{auth.getUserDetails()?.name}}
+  <a class="text-primary" (click)="auth.logout()">Logout</a>
+</div>

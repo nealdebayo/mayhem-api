@@ -1,0 +1,3 @@
+{
+    "connectionString": "mongodb://mayhem-db:27017/test"
+}

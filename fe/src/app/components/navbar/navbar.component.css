@@ -1,0 +1,8 @@
+ul {
+    text-align: center;
+    padding: 8px 0 0;
+}
+li {
+    display: inline-block;
+    padding: 0 32px 0 0px;
+}
